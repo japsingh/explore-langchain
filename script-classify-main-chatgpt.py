@@ -19,6 +19,7 @@ def Load_LLM():
     llm = ChatOpenAI(temperature=0)
     return llm
 
+verbose = True
 
 system_template = """
 You are a Malware analyst.
@@ -38,10 +39,14 @@ Different types of possible obfuscation types you can return:
 2. 'not obfuscated'
 3. 'unknown'
 
-Answer both intent and obfuscation in one word only, without any explanation.
-Return the answer as a valid json object having two parameters "intent" and "obfuscation".
-
 """
+
+if (not verbose) :
+    system_template += """
+    Answer both intent and obfuscation in one word only, without any explanation.
+    Return the answer as a valid json object having two parameters "intent" and "obfuscation".
+    """
+
 
 human_template="""
 {ScriptType} Script:
@@ -83,7 +88,8 @@ if (script_input):
     st.markdown("### Raw output")
     st.write(script_output_msg.content)
 
-    response_json_ob = json.loads(script_output_msg.content)
-    st.write("#### Classification: ", response_json_ob["intent"])
-    st.write("#### Obfuscated: ", response_json_ob["obfuscation"])
+    if (not verbose) :
+        response_json_ob = json.loads(script_output_msg.content)
+        st.write("#### Classification: ", response_json_ob["intent"])
+        st.write("#### Obfuscated: ", response_json_ob["obfuscation"])
 
