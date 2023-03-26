@@ -1,0 +1,46 @@
+Working queries:
+TYPE: Visibility 
+1. How many machines are present in my environment?
+SQL: SELECT COUNT(DISTINCT mid) as machine_count FROM machine
+
+2. Which machines have name starting with aks?
+SQL: SELECT hostname FROM machine WHERE hostname LIKE 'aks%' LIMIT 1024;
+
+3. Which 5 processes have longest names? 
+SQL: SELECT EXE_PATH, LENGTH(EXE_PATH) as name_length FROM process WHERE EXE_PATH IS NOT NULL ORDER BY name_length DESC LIMIT 5
+
+4. What % of machines are running on Windows OS?
+SQL: 100% of machines are running on Windows OS.
+
+5. Which Windows machine does not have windefend.exe running?
+SQL: SELECT m.hostname FROM machine m JOIN process p ON m.mid = p.mid WHERE m.os = 'Windows' AND p.EXE_PATH NOT LIKE '%windefend.exe%' GROUP BY m.hostname
+
+6. What is the IP address of machine aksnpwin2000002?
+SQL: Can't generate SQL because IP address column is not present
+
+7. What is the OS type of machine aksnpwin2000002?
+SQL: SELECT os FROM machine WHERE hostname = 'aksnpwin2000002' LIMIT 1;
+
+
+
+TYPE: Insights
+1. Which 5 machines have reported least number of processes? 
+SQL: SELECT m.hostname, COUNT(p.pid) as process_count FROM machine m JOIN process p ON m.mid = p.mid GROUP BY m.hostname ORDER BY process_count ASC LIMIT 5
+
+2. How many machines have powershell running?
+SQL: SELECT COUNT(DISTINCT p.mid) FROM process p JOIN cmdline c ON p.cmdline_hash = c.cmdline_hash WHERE c.cmdline LIKE '%powershell%';
+
+
+
+
+These queries didn't lead to perfect answers initially:
+
+1. Which machine has reported most number of processes?
+
+Before tweaking the prompt to indicate pids can be unique:
+SQL: SELECT machine.mid, machine.hostname, COUNT(process.pid) as process_count FROM machine JOIN process ON machine.mid = process.mid GROUP BY machine.mid, machine.hostname ORDER BY process_count DESC LIMIT 1
+
+After tweaking the prompt to indicate pids are not unique and can have duplicates:
+SQL: SELECT m.hostname, COUNT(p.pid_hash) as process_count FROM machine m JOIN process p ON m.mid = p.mid GROUP BY m.hostname ORDER BY process_count DESC LIMIT 1
+
+2. 

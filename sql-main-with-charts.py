@@ -7,6 +7,76 @@ from langchain.llms.openai import OpenAI
 from langchain.chat_models import ChatOpenAI
 from langchain.agents import AgentExecutor
 import pandas as pd
+from typing import List
+
+from pydantic import Field
+
+from langchain.agents.agent_toolkits.base import BaseToolkit
+from langchain.sql_database import SQLDatabase
+from langchain.tools import BaseTool
+from langchain.tools.sql_database.tool import (
+    InfoSQLDatabaseTool,
+    ListSQLDatabaseTool,
+    QueryCheckerTool,
+    QuerySQLDataBaseTool,
+    BaseSQLDatabaseTool,
+)
+from pydantic import BaseModel, Extra, Field, validator
+from langchain.tools.base import BaseTool
+
+st.set_page_config(page_title="Execute Database queries in natural language", page_icon=":robot:")
+st.header("Visibility and Insights using natural language")
+
+
+class ChartCreatorTool(BaseSQLDatabaseTool, BaseTool):
+    """Tool for creating charts."""
+
+    name = "create_pie_chart"
+    description = """
+    Input to this tool is a json object which contains the following json elements:
+    "total": the total value of pie chart,
+    then followed by N number of json elements signifying each sub value of a pie chart having the following json format:
+    "name": Name of sub value,
+    "value": sub value number which is lesser than total
+
+    Output of this tool is a visual chart depicting the pie chart.
+    """
+
+    def _run(self, json: str) -> str:
+        """Parse the input json, create the pie chart and return 'success', or return an error message."""
+        
+        print("Input json is ", json)
+        print(json)
+        return "success"
+
+    async def _arun(self, query: str) -> str:
+        raise NotImplementedError("ChartCreatorTool does not support async")
+
+class LWAssistantToolkit(BaseToolkit):
+    """Toolkit for interacting with SQL databases."""
+
+    db: SQLDatabase = Field(exclude=True)
+
+    @property
+    def dialect(self) -> str:
+        """Return string representation of dialect to use."""
+        return self.db.dialect
+
+    class Config:
+        """Configuration for this pydantic object."""
+
+        arbitrary_types_allowed = True
+
+    def get_tools(self) -> List[BaseTool]:
+        """Get the tools in the toolkit."""
+        return [
+            QuerySQLDataBaseTool(db=self.db),
+            InfoSQLDatabaseTool(db=self.db),
+            ListSQLDatabaseTool(db=self.db),
+            QueryCheckerTool(db=self.db),
+            ChartCreatorTool(db=self.db)
+        ]
+
 
 @st.cache_resource
 def create_agent():
@@ -41,7 +111,7 @@ def create_agent():
                    """
     }
     db = SQLDatabase(engine, custom_table_info=custom_table_info)
-    toolkit = SQLDatabaseToolkit(db=db)
+    toolkit = LWAssistantToolkit(db=db)
 
     agent_executor = create_sql_agent(
         llm=ChatOpenAI(temperature=0, model_name='gpt-4'),
@@ -54,8 +124,6 @@ def create_agent():
 
 
 
-st.set_page_config(page_title="Execute Database queries in natural language", page_icon=":robot:")
-st.header("Visibility and Insights using natural language")
 
 agent_executor, db = create_agent()
 

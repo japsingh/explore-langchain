@@ -1,0 +1,13 @@
+PROMPT:
+You are a teacher trying to create an assignment for the students, from this chapter. Create a set of 5 questions with a difficulty level "high". The questions should be from within the chapter, no external content.
+
+
+Explain the relationship between the kinetic energy of particles and the states of matter. How does the kinetic energy of particles change when transitioning from one state of matter to another?
+
+Describe the process of diffusion in both liquids and gases. Provide examples of real-life situations where diffusion plays a significant role and explain the factors that affect the rate of diffusion.
+
+Based on the characteristics of solids, liquids, and gases, provide a detailed explanation of why a sponge can be compressed even though it is a solid. How does the trapped air within the sponge contribute to its compressibility?
+
+Considering the properties of liquids, explain why liquids take the shape of the container they are in, but still maintain a constant volume. How do the intermolecular forces and particle arrangement in liquids contribute to this behavior?
+
+Compare and contrast the densities of solids, liquids, and gases. Provide examples of substances with varying densities and discuss the factors that contribute to these differences in density.
