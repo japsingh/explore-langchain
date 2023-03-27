@@ -43,4 +43,19 @@ SQL: SELECT machine.mid, machine.hostname, COUNT(process.pid) as process_count F
 After tweaking the prompt to indicate pids are not unique and can have duplicates:
 SQL: SELECT m.hostname, COUNT(p.pid_hash) as process_count FROM machine m JOIN process p ON m.mid = p.mid GROUP BY m.hostname ORDER BY process_count DESC LIMIT 1
 
-2. 
+2. Create chart for count of machines running powershell vs machines not running powershell
+
+Sometimes this question led to the SQL query which counted the processes (instead of machines running the processes):
+SELECT COUNT(*) FROM process WHERE LOWER(EXE_PATH) LIKE '%powershell%';
+
+Othertimes it worked perfectly:
+SELECT COUNT(DISTINCT p.mid) as powershell_count FROM process p JOIN machine m ON p.mid = m.mid WHERE p.EXE_PATH LIKE '%powershell.exe%'
+
+3. Count of machines running powershell vs machines not running powershell
+
+This query didn't work most of the times. It counted processes or commandlines, and not machines.
+
+
+
+Charts related queries:
+1. Create a chart for the % of machines which are Windows
